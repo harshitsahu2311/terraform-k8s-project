@@ -1,6 +1,6 @@
 # Internet Gateway
 resource "aws_internet_gateway" "my-igw" {
-  vpc_id = aws_vpc.myapp-vpc.id
+  vpc_id = aws_vpc.my-vpc.id
   tags = {
     Name = "${var.env_prefix}-igw"
   }
