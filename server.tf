@@ -1,18 +1,6 @@
-# Fetch the latest Amazon Linux Image (AMI) owned by AWS
-data "aws_ami" "latest-amazon-linux-image" {
-  most_recent = true
-  owners      = ["amazon"]
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
+
 resource "aws_instance" "jenkins-server" {
-  ami                         = data.aws_ami.latest-amazon-linux-image.id
+  ami                         = var.ami
   instance_type               = var.instance_type
   key_name                    = "jenkins-server-demo"
   subnet_id                   = aws_subnet.jenkins-subnet-1.id
