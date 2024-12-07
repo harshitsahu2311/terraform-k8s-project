@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update the system
-sudo yum update -y
+sudo apt-get update -y
 
 # Install Git
 echo "Installing Git..."
